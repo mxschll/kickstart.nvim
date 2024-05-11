@@ -565,6 +565,7 @@ require('lazy').setup({
             implicitProjectConfiguration = { checkJs = true },
           },
         },
+        rust_analyzer = {},
         html = {},
         cssls = {},
         prettierd = {},
