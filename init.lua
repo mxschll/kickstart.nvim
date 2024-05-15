@@ -598,6 +598,9 @@ require('lazy').setup({
         prettierd = {},
         svelte = {},
         sqlls = {},
+        pyright = {},
+        clangd = {},
+
         --
 
         lua_ls = {
