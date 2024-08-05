@@ -598,7 +598,7 @@ require('lazy').setup({
         prettierd = {},
         svelte = {},
         sqlls = {},
-        pyright = {},
+        pylsp = {},
         clangd = {},
 
         --
