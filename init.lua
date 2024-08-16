@@ -591,14 +591,16 @@ require('lazy').setup({
           },
         },
         rust_analyzer = {},
-        html = {},
+        html = {
+          filetypes = { 'html', 'blade' },
+        },
         cssls = {},
         prettierd = {},
         svelte = {},
         sqlls = {},
-        pyright = {},
+        pylsp = {},
         clangd = {},
-
+        intelephense = {},
         --
 
         lua_ls = {
@@ -662,6 +664,7 @@ require('lazy').setup({
       },
     },
     opts = {
+      ensure_installed = { 'prettier' },
       notify_on_error = false,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
@@ -859,7 +862,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'php', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -869,7 +872,6 @@ require('lazy').setup({
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
         additional_vim_regex_highlighting = { 'ruby' },
       },
-      indent = { enable = true, disable = { 'ruby' } },
     },
     config = function(_, opts)
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -878,6 +880,8 @@ require('lazy').setup({
       require('nvim-treesitter.install').prefer_git = true
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup(opts)
+
+      vim.treesitter.language.register('html', 'blade')
 
       -- There are additional nvim-treesitter modules that you can use to interact
       -- with nvim-treesitter. You should go explore a few and see what interests you:
