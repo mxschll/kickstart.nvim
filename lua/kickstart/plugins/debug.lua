@@ -18,7 +18,8 @@ return {
     'nvim-neotest/nvim-nio',
 
     -- Installs the debug adapters for you
-    'williamboman/mason.nvim',
+    -- 'williamboman/mason.nvim',
+    { 'mason-org/mason.nvim', version = '^1.0.0' },
     'jay-babu/mason-nvim-dap.nvim',
 
     -- Add your own debuggers here
